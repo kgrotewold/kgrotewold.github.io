@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kimberly S. Grotewold, Ph.D. | Portfolio</title>
+    <meta name="description" content="Portfolio of Kimberly S. Grotewold, Ph.D. — AI Librarian, learning technologies researcher, and higher education leader.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Manrope: refined all-sans with good academic feel, plus JetBrains Mono for accents -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script>
+        // --- Tweak defaults (persisted via host edit-mode protocol) ---
+        const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+          "variant": "medium",
+          "primary": "#1A1F2E",
+          "accent": "#8B4513"
+        }/*EDITMODE-END*/;
+    </script>
+
+    <style>
+        /* ================================================================
+           DESIGN SYSTEM
+           Variants: .variant-safe, .variant-medium, .variant-bold
+           ================================================================ */
+        :root {
+            /* Type */
+            --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+            /* Color — default (medium / warm editorial) */
+            --ink: #1A1F2E;               /* deep near-black with blue undertone */
+            --ink-2: #3A4050;
+            --ink-3: #6B7280;
+            --paper: #FAF8F4;             /* warm off-white */
+            --paper-2: #F3EFE7;           /* warm tinted surface */
+            --paper-3: #EAE4D8;
+            --surface: #FFFFFF;
+            --accent: #8B4513;            /* warm sienna */
+            --accent-soft: #B8764B;
+            --rule: rgba(26, 31, 46, 0.1);
+            --focus: #2563EB;
+
+            /* Scale */
+            --container: 1240px;
+            --gutter: clamp(1rem, 3vw, 2rem);
+            --section-pad-y: clamp(4rem, 9vw, 7.5rem);
+
+            /* Elevation */
+            --shadow-sm: 0 1px 2px rgba(26, 31, 46, 0.04), 0 1px 3px rgba(26, 31, 46, 0.06);
+            --shadow-md: 0 4px 12px rgba(26, 31, 46, 0.06), 0 2px 4px rgba(26, 31, 46, 0.04);
+            --shadow-lg: 0 20px 40px -12px rgba(26, 31, 46, 0.14), 0 8px 16px -8px rgba(26, 31, 46, 0.08);
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+        }
+
+        /* ---------- SAFE: editorial minimal, cool neutrals ---------- */
+        body.variant-safe {
+            --ink: #111827;
+            --ink-2: #374151;
+            --ink-3: #6B7280;
+            --paper: #FCFCFC;
+            --paper-2: #F4F4F5;
+            --paper-3: #E5E7EB;
+            --accent: #1E3A8A;
+            --accent-soft: #3B5DB8;
+            --rule: rgba(17, 24, 39, 0.08);
+        }
+        /* ---------- MEDIUM is the default (above) ---------- */
+
+        /* ---------- BOLD: confident, high-contrast ---------- */
+        body.variant-bold {
+            --ink: #0A0A0A;
+            --ink-2: #2A2A2A;
+            --ink-3: #555555;
+            --paper: #F5F1EA;
+            --paper-2: #E8E1D3;
+            --paper-3: #D9CFB9;
+            --accent: #C2410C;
+            --accent-soft: #EA580C;
+            --rule: rgba(0, 0, 0, 0.12);
+        }
+
+        /* ================================================================
+           BASE
+           ================================================================ */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--paper);
+            color: var(--ink);
+            font-size: 17px;
+            line-height: 1.6;
+            font-feature-settings: "ss01", "cv11";
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-weight: 600;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            color: var(--ink);
+        }
+
+        a { color: var(--ink); text-decoration: none; transition: color 150ms ease; }
+        a:hover { color: var(--accent); }
+
+        p { text-wrap: pretty; }
+
+        img { max-width: 100%; height: auto; display: block; }
+
+        button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+        ::selection { background: var(--accent); color: var(--paper); }
+
+        /* Focus */
+        :focus-visible {
+            outline: 2px solid var(--focus);
+            outline-offset: 3px;
+            border-radius: 2px;
+        }
+        .skip-link {
+            position: absolute; top: -60px; left: 16px;
+            background: var(--ink); color: var(--paper);
+            padding: 12px 20px; z-index: 9999;
+            font-weight: 600; border-radius: 0 0 8px 8px;
+            transition: top 200ms ease;
+        }
+        .skip-link:focus { top: 0; }
+
+        /* Container */
+        .container {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 0 var(--gutter);
+        }
+
+        /* ================================================================
+           NAV
+           ================================================================ */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0;
+            background: color-mix(in oklab, var(--paper) 85%, transparent);
+            backdrop-filter: saturate(140%) blur(14px);
+            -webkit-backdrop-filter: saturate(140%) blur(14px);
+            z-index: 100;
+            border-bottom: 1px solid transparent;
+            transition: border-color 200ms ease, background 200ms ease;
+        }
+        .nav.scrolled { border-bottom-color: var(--rule); }
+        .nav-inner {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 0.9rem var(--gutter);
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 1rem;
+        }
+        .nav-logo {
+            display: flex; align-items: baseline; gap: 0.6rem;
+            font-weight: 700; font-size: 0.95rem;
+            letter-spacing: -0.01em;
+        }
+        .nav-logo .mono {
+            font-family: var(--font-mono); font-weight: 400;
+            font-size: 0.72rem; color: var(--ink-3); letter-spacing: 0;
+        }
+        .nav-links { display: flex; list-style: none; gap: 0.25rem; align-items: center; }
+        .nav-links a {
+            font-size: 0.9rem; font-weight: 500; color: var(--ink-2);
+            padding: 0.5rem 0.85rem; border-radius: 6px;
+            position: relative;
+        }
+        .nav-links a:hover { color: var(--ink); background: var(--paper-2); }
+        .nav-links a.active { color: var(--accent); }
+        .nav-links a.active::before {
+            content: ''; position: absolute; left: 50%; bottom: 2px;
+            width: 4px; height: 4px; border-radius: 50%;
+            background: var(--accent); transform: translateX(-50%);
+        }
+        .nav-cta {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: var(--ink); color: var(--paper);
+            padding: 0.55rem 1rem; border-radius: 6px;
+            font-size: 0.85rem; font-weight: 600;
+            transition: background 150ms ease, transform 150ms ease;
+        }
+        .nav-cta:hover { background: var(--accent); color: var(--paper); transform: translateY(-1px); }
+        .menu-toggle {
+            display: none; width: 40px; height: 40px;
+            align-items: center; justify-content: center;
+            border-radius: 6px;
+        }
+        .menu-toggle:hover { background: var(--paper-2); }
+        .menu-toggle span {
+            display: block; width: 20px; height: 1.5px;
+            background: var(--ink); position: relative;
+            transition: transform 200ms ease;
+        }
+        .menu-toggle span::before, .menu-toggle span::after {
+            content: ''; position: absolute; left: 0; width: 20px; height: 1.5px;
+            background: var(--ink); transition: transform 200ms ease;
+        }
+        .menu-toggle span::before { top: -6px; }
+        .menu-toggle span::after { top: 6px; }
+
+        /* ================================================================
+           HERO
+           ================================================================ */
+        .hero {
+            padding: 8rem 0 var(--section-pad-y);
+            position: relative;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: clamp(2rem, 6vw, 5rem);
+            align-items: center;
+        }
+        .hero-eyebrow {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            font-family: var(--font-mono);
+            font-size: 0.78rem; font-weight: 500;
+            color: var(--accent);
+            text-transform: uppercase; letter-spacing: 0.08em;
+            margin-bottom: 1.5rem;
+        }
+        .hero-eyebrow::before {
+            content: ''; width: 24px; height: 1px; background: var(--accent);
+        }
+        .hero h1 {
+            font-size: clamp(2.4rem, 5.8vw, 4.6rem);
+            font-weight: 700;
+            letter-spacing: -0.035em;
+            line-height: 1.02;
+            margin-bottom: 1.25rem;
+        }
+        .hero h1 .accent { color: var(--accent); font-style: italic; font-weight: 500; }
+        .hero-tagline {
+            font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+            color: var(--ink-2);
+            font-weight: 400;
+            max-width: 44ch;
+            margin-bottom: 2rem;
+            line-height: 1.45;
+        }
+        .hero-actions {
+            display: flex; flex-wrap: wrap; gap: 0.75rem;
+            margin-bottom: 3rem;
+        }
+        .btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.85rem 1.35rem;
+            border-radius: 8px;
+            font-size: 0.95rem; font-weight: 600;
+            transition: all 180ms ease;
+            border: 1.5px solid transparent;
+        }
+        .btn-primary {
+            background: var(--ink); color: var(--paper);
+        }
+        .btn-primary:hover { background: var(--accent); color: var(--paper); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        .btn-ghost {
+            background: transparent; color: var(--ink);
+            border-color: var(--rule);
+        }
+        .btn-ghost:hover { border-color: var(--ink); color: var(--ink); background: var(--paper-2); }
+
+        /* Credentials at a glance */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--rule);
+        }
+        .hero-stat {
+            display: flex; flex-direction: column; gap: 0.25rem;
+        }
+        .hero-stat .num {
+            font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: var(--ink);
+            line-height: 1;
+        }
+        .hero-stat .num sup {
+            font-size: 0.55em; color: var(--accent); font-weight: 500;
+            top: -0.6em; margin-left: 2px;
+        }
+        .hero-stat .label {
+            font-size: 0.82rem;
+            color: var(--ink-3);
+            line-height: 1.3;
+            margin-top: 0.5rem;
+        }
+
+        /* Hero visual */
+        .hero-visual {
+            position: relative;
+            aspect-ratio: 4 / 5;
+        }
+        .hero-portrait {
+            width: 100%; height: 100%;
+            background: var(--paper-2);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow-lg);
+        }
+        .hero-portrait img {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+        }
+        .hero-portrait-placeholder {
+            width: 100%; height: 100%;
+            background:
+                repeating-linear-gradient(135deg, transparent 0 14px, color-mix(in oklab, var(--ink) 6%, transparent) 14px 15px),
+                linear-gradient(160deg, var(--paper-2), var(--paper-3));
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            gap: 0.75rem; color: var(--ink-3);
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-align: center;
+            padding: 2rem;
+        }
+        .hero-portrait-placeholder svg { width: 56px; height: 56px; opacity: 0.35; }
+
+        .hero-badge {
+            position: absolute;
+            bottom: -16px; left: -16px;
+            background: var(--surface);
+            border-radius: 12px;
+            padding: 0.9rem 1.1rem;
+            box-shadow: var(--shadow-md);
+            display: flex; align-items: center; gap: 0.75rem;
+            max-width: 260px;
+            border: 1px solid var(--rule);
+        }
+        .hero-badge-dot {
+            width: 10px; height: 10px; border-radius: 50%;
+            background: #10B981; flex-shrink: 0;
+            box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
+        }
+        .hero-badge-text { font-size: 0.78rem; color: var(--ink-2); line-height: 1.35; }
+        .hero-badge-text strong { color: var(--ink); font-weight: 600; display: block; font-size: 0.82rem; }
+
+        .hero-marks {
+            position: absolute;
+            top: -8px; right: -8px;
+            background: var(--ink); color: var(--paper);
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            padding: 0.4rem 0.75rem;
+            border-radius: 4px;
+            letter-spacing: 0.08em;
+        }
+
+        /* ================================================================
+           SECTION SHARED
+           ================================================================ */
+        .section { padding: var(--section-pad-y) 0; position: relative; }
+        .section-alt { background: var(--paper-2); }
+
+        .section-head {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: clamp(1.5rem, 4vw, 4rem);
+            margin-bottom: clamp(2.5rem, 5vw, 4rem);
+            align-items: end;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--rule);
+        }
+        .section-num {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--accent);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        .section-num::before {
+            content: ''; width: 20px; height: 1px; background: var(--accent);
+        }
+        .section-title {
+            font-size: clamp(2rem, 4.2vw, 3.25rem);
+            letter-spacing: -0.03em;
+            font-weight: 700;
+        }
+        .section-title .accent { color: var(--accent); font-style: italic; font-weight: 500; }
+        .section-lede {
+            font-size: 1.1rem;
+            color: var(--ink-2);
+            max-width: 60ch;
+            line-height: 1.55;
+        }
+
+        @media (max-width: 800px) {
+            .section-head { grid-template-columns: 1fr; gap: 1rem; align-items: start; }
+        }
+
+        /* ================================================================
+           ABOUT DETAIL
+           ================================================================ */
+        .about-detail {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: clamp(2rem, 5vw, 4rem);
+            align-items: start;
+        }
+        .about-prose p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--ink-2);
+            margin-bottom: 1.25rem;
+        }
+        .about-prose p:first-child::first-letter {
+            font-size: 3.6em;
+            font-weight: 700;
+            float: left;
+            line-height: 0.85;
+            margin: 0.1em 0.1em 0 0;
+            color: var(--accent);
+            letter-spacing: -0.04em;
+        }
+        .about-prose em { color: var(--ink); font-style: italic; font-weight: 500; }
+
+        .about-sidebar {
+            background: var(--surface);
+            border: 1px solid var(--rule);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            position: sticky; top: 100px;
+        }
+        .about-sidebar h3 {
+            font-family: var(--font-mono);
+            font-size: 0.78rem; font-weight: 500;
+            text-transform: uppercase; letter-spacing: 0.08em;
+            color: var(--accent);
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--rule);
+        }
+        .about-sidebar ul { list-style: none; }
+        .about-sidebar li {
+            padding: 0.65rem 0;
+            border-bottom: 1px solid var(--rule);
+            font-size: 0.92rem;
+            display: flex; justify-content: space-between; align-items: baseline;
+            gap: 1rem;
+        }
+        .about-sidebar li:last-child { border-bottom: none; }
+        .about-sidebar li .k { color: var(--ink-3); font-size: 0.85rem; }
+        .about-sidebar li .v { color: var(--ink); font-weight: 500; text-align: right; }
+
+        /* ================================================================
+           EXPERIENCE — Expandable cards
+           ================================================================ */
+        .experience-list {
+            display: flex; flex-direction: column; gap: 0;
+        }
+        .exp-item {
+            border-top: 1px solid var(--rule);
+            transition: background 200ms ease;
+        }
+        .exp-item:last-child { border-bottom: 1px solid var(--rule); }
+        .exp-item:hover { background: color-mix(in oklab, var(--paper) 94%, var(--ink) 6%); }
+        .exp-item.open { background: var(--surface); }
+
+        .exp-header {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 140px 1fr auto;
+            gap: 1.5rem;
+            align-items: center;
+            padding: 1.75rem 0.5rem;
+            text-align: left;
+        }
+        .exp-date {
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+        .exp-title-block { display: flex; flex-direction: column; gap: 0.25rem; }
+        .exp-title { font-size: 1.2rem; font-weight: 600; color: var(--ink); }
+        .exp-org { font-size: 0.95rem; color: var(--ink-3); }
+        .exp-toggle {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            border: 1px solid var(--rule);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+            transition: all 200ms ease;
+        }
+        .exp-item.open .exp-toggle {
+            background: var(--ink); border-color: var(--ink);
+        }
+        .exp-item.open .exp-toggle svg {
+            transform: rotate(45deg);
+            stroke: var(--paper);
+        }
+        .exp-toggle svg {
+            width: 16px; height: 16px;
+            stroke: var(--ink); stroke-width: 1.5;
+            transition: transform 250ms ease, stroke 200ms ease;
+        }
+
+        .exp-body {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 350ms cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .exp-item.open .exp-body { grid-template-rows: 1fr; }
+        .exp-body-inner {
+            overflow: hidden;
+            min-height: 0;
+        }
+        .exp-description {
+            padding: 0 calc(140px + 1.5rem) 2rem 140px;
+            margin-left: 1.5rem;
+            padding-left: 0;
+            max-width: 70ch;
+            color: var(--ink-2);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        .exp-tags {
+            display: flex; flex-wrap: wrap; gap: 0.4rem;
+            padding-left: calc(140px + 1.5rem);
+            padding-bottom: 2rem;
+            margin-left: 1.5rem;
+            padding-left: 0;
+        }
+        .exp-tag {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            padding: 0.3rem 0.65rem;
+            background: var(--paper-2);
+            border: 1px solid var(--rule);
+            border-radius: 20px;
+            color: var(--ink-2);
+        }
+
+        @media (max-width: 720px) {
+            .exp-header {
+                grid-template-columns: 1fr auto;
+                gap: 0.75rem;
+                padding: 1.25rem 0.25rem;
+            }
+            .exp-date {
+                grid-column: 1 / -1;
+                order: -1;
+                font-size: 0.75rem;
+            }
+            .exp-description, .exp-tags { padding-left: 0; margin-left: 0; }
+            .exp-description { padding-bottom: 1.25rem; }
+            .exp-tags { padding-bottom: 1.5rem; }
+        }
+
+        /* ================================================================
+           LEADERSHIP PHILOSOPHY
+           ================================================================ */
+        .philosophy {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(2rem, 5vw, 4rem);
+            align-items: start;
+        }
+        .pq {
+            font-family: var(--font-sans);
+            font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+            font-weight: 500;
+            line-height: 1.25;
+            letter-spacing: -0.025em;
+            color: var(--ink);
+            padding-left: 2rem;
+            border-left: 3px solid var(--accent);
+            position: sticky; top: 100px;
+        }
+        .pq .accent { color: var(--accent); font-style: italic; font-weight: 400; }
+
+        .pillars { display: flex; flex-direction: column; gap: 1.5rem; }
+        .pillar {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            border: 1px solid var(--rule);
+            display: flex; gap: 1.25rem;
+            transition: transform 200ms ease, box-shadow 200ms ease;
+        }
+        .pillar:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        .pillar-num {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 500;
+            flex-shrink: 0;
+            padding-top: 0.1rem;
+        }
+        .pillar h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .pillar p {
+            font-size: 0.97rem;
+            color: var(--ink-2);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 800px) {
+            .philosophy { grid-template-columns: 1fr; }
+            .pq { position: static; padding-left: 1.25rem; }
+        }
+
+        /* ================================================================
+           RESEARCH
+           ================================================================ */
+        .research-filter {
+            display: flex; gap: 0.5rem; flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        .filter-btn {
+            font-size: 0.85rem;
+            padding: 0.5rem 0.95rem;
+            border-radius: 20px;
+            border: 1px solid var(--rule);
+            color: var(--ink-2);
+            font-weight: 500;
+            transition: all 150ms ease;
+        }
+        .filter-btn:hover { border-color: var(--ink-2); color: var(--ink); }
+        .filter-btn.active {
+            background: var(--ink); color: var(--paper); border-color: var(--ink);
+        }
+
+        .research-grid { display: grid; gap: 1.25rem; }
+
+        .research-card {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            padding: clamp(1.5rem, 3vw, 2rem);
+            border: 1px solid var(--rule);
+            transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+            position: relative;
+        }
+        .research-card:hover {
+            border-color: color-mix(in oklab, var(--accent) 50%, transparent);
+            box-shadow: var(--shadow-md);
+        }
+        .research-card-head {
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 1rem; margin-bottom: 0.75rem; flex-wrap: wrap;
+        }
+        .research-type {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            font-family: var(--font-mono);
+            font-size: 0.72rem; font-weight: 500;
+            text-transform: uppercase; letter-spacing: 0.08em;
+            color: var(--accent);
+            padding: 0.3rem 0.65rem;
+            background: color-mix(in oklab, var(--accent) 8%, transparent);
+            border-radius: 20px;
+        }
+        .research-year {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--ink-3);
+        }
+        .research-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+        .research-authors {
+            font-size: 0.92rem;
+            color: var(--ink-2);
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+        .research-authors strong { color: var(--ink); font-weight: 600; }
+        .research-venue {
+            font-size: 0.9rem;
+            color: var(--ink-3);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        .research-booktitle {
+            font-size: 0.95rem;
+            color: var(--ink-2);
+            margin-bottom: 0.35rem;
+            line-height: 1.5;
+        }
+        .research-editors {
+            font-size: 0.88rem;
+            color: var(--ink-3);
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+        .research-abstract {
+            color: var(--ink-2);
+            font-size: 0.95rem;
+            line-height: 1.65;
+            margin-bottom: 1rem;
+        }
+        .research-doi {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent);
+            font-weight: 500;
+            padding-top: 0.75rem;
+            border-top: 1px solid var(--rule);
+        }
+        .research-doi:hover { color: var(--ink); }
+        .research-doi svg { width: 14px; height: 14px; }
+
+        /* ================================================================
+           PRESENTATIONS
+           ================================================================ */
+        .presentations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+        .pres-card {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--rule);
+            transition: transform 200ms ease, box-shadow 200ms ease;
+            display: flex; flex-direction: column;
+        }
+        .pres-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        .pres-thumb {
+            aspect-ratio: 16 / 10;
+            background:
+                repeating-linear-gradient(135deg, transparent 0 10px, color-mix(in oklab, var(--ink) 5%, transparent) 10px 11px),
+                linear-gradient(160deg, var(--paper-2), var(--paper-3));
+            display: flex; align-items: center; justify-content: center;
+            position: relative;
+            border-bottom: 1px solid var(--rule);
+        }
+        .pres-thumb-image {
+            background: var(--paper-2);
+            overflow: hidden;
+        }
+        .pres-thumb-image img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .pres-thumb-label {
+            font-family: var(--font-mono); font-size: 0.75rem;
+            color: var(--ink-3); letter-spacing: 0.05em;
+            background: var(--paper);
+            padding: 0.35rem 0.75rem; border-radius: 4px;
+            border: 1px solid var(--rule);
+        }
+        .pres-body {
+            padding: 1.5rem;
+            display: flex; flex-direction: column; gap: 0.6rem;
+            flex: 1;
+        }
+        .pres-meta {
+            display: flex; align-items: center; gap: 0.75rem;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase; letter-spacing: 0.05em;
+        }
+        .pres-meta-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--ink-3); }
+        .pres-meta .type { color: var(--ink-3); }
+        .pres-title {
+            font-size: 1.08rem;
+            font-weight: 600;
+            line-height: 1.35;
+        }
+        .pres-venue { font-size: 0.9rem; color: var(--ink-2); }
+
+        /* ================================================================
+           CREATIVE WORKS
+           ================================================================ */
+        .creative-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+        .creative-card {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--rule);
+            transition: transform 200ms ease, box-shadow 200ms ease;
+        }
+        .creative-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        .creative-thumb {
+            aspect-ratio: 1 / 1;
+            background:
+                repeating-linear-gradient(45deg, transparent 0 10px, color-mix(in oklab, var(--ink) 5%, transparent) 10px 11px),
+                linear-gradient(160deg, var(--paper-2), var(--paper-3));
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            gap: 0.5rem;
+            color: var(--ink-3);
+            border-bottom: 1px solid var(--rule);
+        }
+        .creative-thumb svg { width: 36px; height: 36px; opacity: 0.5; }
+        .creative-thumb-label { font-family: var(--font-mono); font-size: 0.72rem; }
+        .creative-body { padding: 1.25rem 1.35rem 1.5rem; }
+        .creative-type {
+            font-family: var(--font-mono); font-size: 0.72rem;
+            color: var(--accent);
+            text-transform: uppercase; letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+        .creative-title { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.35rem; }
+        .creative-desc { font-size: 0.88rem; color: var(--ink-2); line-height: 1.5; }
+
+        /* ================================================================
+           FOOTER
+           ================================================================ */
+        footer {
+            background: var(--ink);
+            color: var(--paper);
+            padding: clamp(3rem, 6vw, 5rem) 0 2rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 2rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .footer-brand h3 {
+            color: var(--paper);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+        .footer-brand p { color: rgba(255,255,255,0.65); font-size: 0.95rem; max-width: 40ch; }
+        .footer-col h4 {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+        .footer-col a {
+            color: rgba(255,255,255,0.75);
+            font-size: 0.9rem;
+            transition: color 150ms ease;
+        }
+        .footer-col a:hover { color: var(--paper); }
+        .footer-bottom {
+            padding-top: 1.5rem;
+            display: flex; justify-content: space-between;
+            flex-wrap: wrap; gap: 1rem;
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.4);
+            font-family: var(--font-mono);
+        }
+
+        @media (max-width: 720px) {
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; padding-bottom: 2rem; }
+        }
+
+        /* ================================================================
+           RESPONSIVE
+           ================================================================ */
+        @media (max-width: 900px) {
+            .hero-grid { grid-template-columns: 1fr; }
+            .hero-visual { max-width: 400px; margin: 0 auto; }
+            .about-detail { grid-template-columns: 1fr; }
+            .about-sidebar { position: static; }
+        }
+        @media (max-width: 768px) {
+            body { font-size: 16px; }
+            .nav-links {
+                position: fixed; top: 64px; left: 0; right: 0; bottom: 0;
+                background: var(--paper);
+                flex-direction: column; align-items: stretch;
+                padding: 2rem var(--gutter);
+                gap: 0.25rem;
+                transform: translateX(100%);
+                transition: transform 300ms ease;
+                border-top: 1px solid var(--rule);
+            }
+            .nav-links.open { transform: translateX(0); }
+            .nav-links a { padding: 1rem; font-size: 1.05rem; border-radius: 8px; }
+            .nav-links a.active::before { display: none; }
+            .menu-toggle { display: inline-flex; }
+            .nav-cta { padding: 0.5rem 0.85rem; font-size: 0.82rem; }
+            .hero-stats { grid-template-columns: 1fr 1fr; gap: 1.25rem 1.5rem; }
+            .hero-stats .hero-stat:nth-child(3) { grid-column: 1 / -1; }
+        }
+
+        /* ================================================================
+           TWEAKS PANEL
+           ================================================================ */
+        .tweaks-panel {
+            position: fixed;
+            bottom: 20px; right: 20px;
+            width: 300px;
+            background: var(--surface);
+            border: 1px solid var(--rule);
+            border-radius: 14px;
+            box-shadow: var(--shadow-lg);
+            padding: 1.25rem;
+            z-index: 1000;
+            display: none;
+            font-size: 0.88rem;
+        }
+        .tweaks-panel.active { display: block; }
+        .tweaks-panel h4 {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--ink-3);
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .tweaks-panel h4 .close {
+            font-size: 1rem; cursor: pointer; color: var(--ink-3);
+            line-height: 1;
+        }
+        .tweak-group { margin-bottom: 1.25rem; }
+        .tweak-group:last-child { margin-bottom: 0; }
+        .tweak-label {
+            font-size: 0.78rem;
+            color: var(--ink-2);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .variant-buttons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.4rem; }
+        .variant-btn {
+            padding: 0.55rem 0.5rem;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            border: 1px solid var(--rule);
+            background: var(--paper);
+            color: var(--ink-2);
+            font-weight: 600;
+            transition: all 150ms ease;
+        }
+        .variant-btn:hover { border-color: var(--ink-2); }
+        .variant-btn.active {
+            background: var(--ink); color: var(--paper); border-color: var(--ink);
+        }
+        .variant-desc {
+            font-size: 0.72rem;
+            color: var(--ink-3);
+            margin-top: 0.5rem;
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        /* ================================================================
+           ENTRY ANIMATIONS
+           ================================================================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 700ms ease, transform 700ms ease;
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="variant-medium">
+    <a href="#about" class="skip-link">Skip to main content</a>
+
+    <!-- ==================== NAV ==================== -->
+    <nav class="nav" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="#top" class="nav-logo">
+                <span>Kimberly S. Grotewold</span>
+                <span class="mono">Ph.D.</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about" class="active">About</a></li>
+                <li><a href="#philosophy">Philosophy</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#presentations">Speaking</a></li>
+                <li><a href="#creative">Works</a></li>
+            </ul>
+            <a href="#cv" class="nav-cta" download>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                CV
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main id="top">
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" id="about">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <div class="hero-eyebrow">Ph.D. · Learning Technologies</div>
+                    <h1>
+                        Kimberly S.<br>
+                        Grotewold, <span class="accent">Ph.D.</span>
+                    </h1>
+                    <p class="hero-tagline">
+                        Advancing the ethical, equitable integration of artificial intelligence in higher education, libraries, and learning design.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#cv" class="btn btn-primary" download>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            Download CV
+                        </a>
+                        <a href="/cdn-cgi/l/email-protection#0b606c79647f6e7c64676f4b7f6a667e786a256e6f7e" class="btn btn-ghost">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            Get in touch
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="num">18<sup>yrs</sup></span>
+                            <span class="label">Across higher ed, K–12, and public libraries</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="num">11</span>
+                            <span class="label">Institutions coordinated as former CATIE Chair</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="num">3+</span>
+                            <span class="label">Peer-reviewed publications in leading journals</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-portrait">
+                        <!-- Replace src below with your portrait when ready -->
+                        <img src="Profile.jpg" alt="Portrait of Kimberly S. Grotewold, Ph.D."
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="hero-portrait-placeholder" style="display:none;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+                                <circle cx="12" cy="8" r="4"/>
+                                <path d="M4 21v-1a8 8 0 0 1 16 0v1"/>
+                            </svg>
+                            <span>portrait.jpg</span>
+                            <span style="font-size:0.7rem; opacity:0.7;">4:5 aspect, portrait orientation</span>
+                        </div>
+                    </div>
+                    <div class="hero-marks">AI · LXD · LEADERSHIP</div>
+                    <div class="hero-badge">
+                        <span class="hero-badge-dot" aria-hidden="true"></span>
+                        <div class="hero-badge-text">
+                            <strong>Open to leadership roles</strong>
+                            Faculty · Admin · 2026
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ABOUT DETAIL ==================== -->
+    <section class="section section-alt" aria-labelledby="about-detail-title">
+        <div class="container">
+            <div class="section-head">
+                <div>
+                    <div class="section-num">01 · About</div>
+                    <h2 class="section-title" id="about-detail-title">
+                        A career in <span class="accent">intentional</span> learning design.
+                    </h2>
+                </div>
+                <p class="section-lede">
+                    I&rsquo;m a tenacious learning technologies researcher, instructional designer, and educator working at the intersection of applied research, learning experience design, and higher education leadership.
+                </p>
+            </div>
+
+            <div class="about-detail">
+                <div class="about-prose">
+                    <p>With 18 years of experience across higher education, K&ndash;12 schools, and public libraries, my work centers on the intentional, ethical, and equitable integration of emerging tools &mdash; particularly artificial intelligence &mdash; into teaching and curriculum design.</p>
+
+                    <p>Having earned my Ph.D. in Learning Technologies from the University of North Texas, I developed the <em>ECET AI Framework</em>, a decision-support tool to help educators evaluate AI products. My scholarship on AI adoption, instructional design, and open educational resources has been published in various venues, including the <em>Journal of Interactive Learning Research</em>, the <em>Decision Sciences Journal of Innovative Education</em>, and the <em>International Journal of Designs for Learning</em>.</p>
+
+                    <p>Currently, as the AI Librarian and Library Innovation Lab Supervisor at Texas A&amp;M University-San Antonio, I champion generative AI awareness and responsible adoption among students, staff, and faculty. Previously, as Vice Chair and Chair of the Texas A&amp;M University System&rsquo;s CATIE, I coordinated AI professional development and the sharing of best practices across 11 institutions and 8 agencies.</p>
+                </div>
+
+                <aside class="about-sidebar" aria-label="At a glance">
+                    <h3>At a glance</h3>
+                    <ul>
+                        <li><span class="k">Doctorate</span> <span class="v">Ph.D., UNT</span></li>
+                        <li><span class="k">Field</span> <span class="v">Learning Technologies</span></li>
+                        <li><span class="k">Role</span> <span class="v">AI Librarian</span></li>
+                        <li><span class="k">Institution</span> <span class="v">TAMU-SA</span></li>
+                        <li><span class="k">Framework</span> <span class="v">ECET AI</span></li>
+                        <li><span class="k">Location</span> <span class="v">San Antonio, TX</span></li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== LEADERSHIP PHILOSOPHY ==================== -->
+    <section class="section" id="philosophy" aria-labelledby="philosophy-title">
+        <div class="container">
+            <div class="section-head">
+                <div>
+                    <div class="section-num">02 · Philosophy</div>
+                    <h2 class="section-title" id="philosophy-title">
+                        Leading with <span class="accent">care</span>, clarity, and curiosity.
+                    </h2>
+                </div>
+                <p class="section-lede">
+                    Three commitments shape how I lead teams, design learning, and integrate emerging technology.
+                </p>
+            </div>
+
+            <div class="philosophy">
+                <blockquote class="pq">
+                    &ldquo;Technology should <span class="accent">extend</span> access, not compress or negate human capabilities. My job is to make sure it does.&rdquo;
+                </blockquote>
+
+                <div class="pillars">
+                    <article class="pillar">
+                        <span class="pillar-num">01</span>
+                        <div>
+                            <h3>Ethics before adoption</h3>
+                            <p>Every tool we introduce into a classroom or library must pass a clear bar for transparency, student agency, and just outcomes. The ECET AI Framework exists to make that evaluation concrete.</p>
+                        </div>
+                    </article>
+                    <article class="pillar">
+                        <span class="pillar-num">02</span>
+                        <div>
+                            <h3>Design for the full learner</h3>
+                            <p>Accessibility, language access, and varied learning preferences aren&rsquo;t add-ons. They&rsquo;re the starting point of good instructional design &mdash; and the baseline for any leadership decision.</p>
+                        </div>
+                    </article>
+                    <article class="pillar">
+                        <span class="pillar-num">03</span>
+                        <div>
+                            <h3>Lead across boundaries</h3>
+                            <p>Real change in higher education requires coordinating across departments, roles, and disciplines. I thrive in cross-functional settings where varied perspectives are brought together to solve problems and chart a shared direction forward.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== EXPERIENCE ==================== -->
+    <section class="section section-alt" id="experience" aria-labelledby="experience-title">
+        <div class="container">
+            <div class="section-head">
+                <div>
+                    <div class="section-num">03 · Experience</div>
+                    <h2 class="section-title" id="experience-title">Professional Experience</h2>
+                </div>
+                <p class="section-lede">
+                    Two decades of leadership across academic libraries, faculty development, and learning design. Select any role to expand.
+                </p>
+            </div>
+
+            <div class="experience-list" id="experienceList">
+
+                <article class="exp-item open">
+                    <button class="exp-header" aria-expanded="true">
+                        <span class="exp-date">2025 &mdash; Present</span>
+                        <span class="exp-title-block">
+                            <span class="exp-title">AI Librarian &amp; Library Innovation Lab Supervisor</span>
+                            <span class="exp-org">Texas A&amp;M University-San Antonio</span>
+                        </span>
+                        <span class="exp-toggle" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        </span>
+                    </button>
+                    <div class="exp-body">
+                        <div class="exp-body-inner">
+                            <p class="exp-description">
+                                I shape how faculty, staff, and students at Texas A&amp;M University-San Antonio understand and use generative AI for research and scholarship through direct instruction, resource development, and leadership on the University AI Steering Committee and the Texas A&amp;M System&rsquo;s Council for Academic Technology and Innovative Education (CATIE). I also launched and supervise the Library Innovation Lab and serve as the education subject librarian for the College of Education and Human Development.
+                            </p>
+                            <div class="exp-tags">
+                                <span class="exp-tag">Generative AI</span>
+                                <span class="exp-tag">Faculty Development</span>
+                                <span class="exp-tag">Innovation Lab</span>
+                                <span class="exp-tag">Systemwide Leadership</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="exp-item">
+                    <button class="exp-header" aria-expanded="false">
+                        <span class="exp-date">2018 &mdash; 2025</span>
+                        <span class="exp-title-block">
+                            <span class="exp-title">Education Librarian</span>
+                            <span class="exp-org">Texas A&amp;M University-San Antonio</span>
+                        </span>
+                        <span class="exp-toggle" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        </span>
+                    </button>
+                    <div class="exp-body">
+                        <div class="exp-body-inner">
+                            <p class="exp-description">
+                                I have connected students, faculty, and staff across four education departments to library resources and research expertise through instruction, consultations, proactive outreach, and digital learning materials. I have managed a substantial portion of the library&rsquo;s e-book/print book budget, contributed to accreditation and program review documentation, and partnered with campus and system units to provide faculty development programming, including a stipend-supported OER initiative. I have collaborated with Graduate Studies as an active member of the Graduate Faculty Council and have been involved with student orientations and GA training. Much of this work continues through my new role.
+                            </p>
+                            <div class="exp-tags">
+                                <span class="exp-tag">OER Leadership</span>
+                                <span class="exp-tag">Collections Strategy</span>
+                                <span class="exp-tag">Accreditation</span>
+                                <span class="exp-tag">Graduate Council</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="exp-item">
+                    <button class="exp-header" aria-expanded="false">
+                        <span class="exp-date">2014 &mdash; 2018</span>
+                        <span class="exp-title-block">
+                            <span class="exp-title">Reference &amp; Instruction Librarian</span>
+                            <span class="exp-org">Harrisburg Area Community College, PA</span>
+                        </span>
+                        <span class="exp-toggle" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        </span>
+                    </button>
+                    <div class="exp-body">
+                        <div class="exp-body-inner">
+                            <p class="exp-description">
+                                I served as the information literacy and research instruction lead for the Lebanon Campus. I was the collegewide subject-area liaison for Communication, Humanities, and the Arts, directing library liaison and collection efforts for those disciplines. I co-chaired the Professional Development Committee, helped build an institution-wide librarian onboarding program and an instruction assessment toolkit, and designed a faculty questionnaire to evaluate and strengthen the instructional program. I actively contributed to shared governance and campus initiatives focused on teaching excellence, accessibility, and academic technology.
+                            </p>
+                            <div class="exp-tags">
+                                <span class="exp-tag">Information Literacy</span>
+                                <span class="exp-tag">Curriculum Design</span>
+                                <span class="exp-tag">Assessment</span>
+                                <span class="exp-tag">Shared Governance</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="exp-item">
+                    <button class="exp-header" aria-expanded="false">
+                        <span class="exp-date">2012 &mdash; 2014</span>
+                        <span class="exp-title-block">
+                            <span class="exp-title">Coordinator, Music Research Fellows Program</span>
+                            <span class="exp-org">Millersville University, PA</span>
+                        </span>
+                        <span class="exp-toggle" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        </span>
+                    </button>
+                    <div class="exp-body">
+                        <div class="exp-body-inner">
+                            <p class="exp-description">
+                                I co-created and facilitated a first-of-its-kind stipend-supported research fellows program for undergraduate music majors, guiding students through individual and faculty-collaborative research projects within a peer learning community. I managed all program logistics from developing the application and co-leading fellow selection to presenting budget requests to the Dean of Arts and Humanities. I also helped build a shared repository of information literacy resources as the program expanded to other disciplines and co-presented with the fellows at a systemwide convening to demonstrate its impact and replicability.
+                            </p>
+                            <div class="exp-tags">
+                                <span class="exp-tag">Program Design</span>
+                                <span class="exp-tag">Undergraduate Research</span>
+                                <span class="exp-tag">Budget Leadership</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="exp-item">
+                    <button class="exp-header" aria-expanded="false">
+                        <span class="exp-date">2008 &mdash; 2012</span>
+                        <span class="exp-title-block">
+                            <span class="exp-title">Public Services Librarian</span>
+                            <span class="exp-org">Millersville University, PA</span>
+                        </span>
+                        <span class="exp-toggle" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        </span>
+                    </button>
+                    <div class="exp-body">
+                        <div class="exp-body-inner">
+                            <p class="exp-description">
+                                I provided responsive, multi-channel research support to students by planning and delivering information literacy instruction for English writing, music, and first-year experience courses, as well as conducting research consultations. Additionally, I collected and organized data from library reference interactions to create FAQ content for the library website, translating patterns in student questions into a practical, scalable resource.
+                            </p>
+                            <div class="exp-tags">
+                                <span class="exp-tag">Reference</span>
+                                <span class="exp-tag">Instruction</span>
+                                <span class="exp-tag">Digital Resources</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="exp-item">
+                    <button class="exp-header" aria-expanded="false">
+                        <span class="exp-date">2003 &mdash; 2004</span>
+                        <span class="exp-title-block">
+                            <span class="exp-title">English Lab Instructor</span>
+                            <span class="exp-org">Del Mar College, Corpus Christi, TX</span>
+                        </span>
+                        <span class="exp-toggle" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        </span>
+                    </button>
+                    <div class="exp-body">
+                        <div class="exp-body-inner">
+                            <p class="exp-description">
+                                I supported developmental and freshman-level writers through a high-volume teaching load of up to 14 hours per week across multiple writing lab sections. I was also among the first instructors to teach the ENG 1301 lab in a fully online format. This was an early and formative experience that laid the groundwork for my ongoing commitment to accessible, technology-enhanced instruction.
+                            </p>
+                            <div class="exp-tags">
+                                <span class="exp-tag">Composition</span>
+                                <span class="exp-tag">Early Online Teaching</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== RESEARCH ==================== -->
+    <section class="section" id="research" aria-labelledby="research-title">
+        <div class="container">
+            <div class="section-head">
+                <div>
+                    <div class="section-num">04 · Scholarship</div>
+                    <h2 class="section-title" id="research-title">
+                        Published <span class="accent">research</span>.
+                    </h2>
+                </div>
+                <p class="section-lede">
+                    Peer-reviewed work on AI adoption in education, doctoral program design, and faculty development.
+                </p>
+            </div>
+
+            <div class="research-filter" role="tablist" aria-label="Filter research">
+                <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+                <button class="filter-btn" data-filter="journal" role="tab" aria-selected="false">Journal Articles</button>
+                <button class="filter-btn" data-filter="chapter" role="tab" aria-selected="false">Book Chapters</button>
+                <button class="filter-btn" data-filter="working" role="tab" aria-selected="false">Working Papers</button>
+            </div>
+
+            <div class="research-grid">
+                <article class="research-card" data-type="journal">
+                    <div class="research-card-head">
+                        <span class="research-type">Journal Article</span>
+                        <span class="research-year">2024</span>
+                    </div>
+                    <h3 class="research-title">Ethics of Care and Soft Systems Methodology Employed to Guide a Doctoral Program Redesign</h3>
+                    <p class="research-authors">Warren, S. J., Rivera, B., <strong>Grotewold, K. S.</strong>, Johnson, V., Hernandez, R., Yeoh, E., McGuffin, K., &amp; Robinson, H.</p>
+                    <p class="research-venue">International Journal of Designs for Learning</p>
+                    <p class="research-abstract">The authors leveraged Ethics of Care Theory and Soft Systems Methodology to transform a doctoral program into a more supportive, student-centered environment aimed at increasing success and retention. The study detailed the eight soft systems steps used in the redesign process, presented the program review actions aligned to a 12-month calendar, described challenges that arose, and suggested ongoing and future solutions.</p>
+                    <a href="https://doi.org/10.14434/ijdl.v15i3.37812" class="research-doi" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                        doi.org/10.14434/ijdl.v15i3.37812
+                    </a>
+                </article>
+
+                <article class="research-card" data-type="journal">
+                    <div class="research-card-head">
+                        <span class="research-type">Journal Article</span>
+                        <span class="research-year">2024</span>
+                    </div>
+                    <h3 class="research-title">Changes to Business Faculty Perceived Skills with Online Teaching Tools and Educational Practices: The Pandemic Effect</h3>
+                    <p class="research-authors">Churchill, C., Warren, S. J., &amp; <strong>Grotewold, K. S.</strong></p>
+                    <p class="research-venue">Decision Sciences Journal of Innovative Education (DSJIE)</p>
+                    <p class="research-abstract">This study examined how the COVID-19 pandemic impacted the perceived digital teaching skills of business faculty in the southwest United States. Using the UNESCO teacher competency framework, researchers surveyed professors who transitioned to remote instruction with minimal training in 2020. Results indicated significant growth in instructors&rsquo; self-perceived proficiency across digital communication, virtual office hours, synchronous and asynchronous class delivery, digital assessment, and feedback.</p>
+                    <a href="https://doi.org/10.1111/dsji.12317" class="research-doi" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                        doi.org/10.1111/dsji.12317
+                    </a>
+                </article>
+
+                <article class="research-card" data-type="journal">
+                    <div class="research-card-head">
+                        <span class="research-type">Journal Article</span>
+                        <span class="research-year">2023</span>
+                    </div>
+                    <h3 class="research-title">Generative AI and Teachers&rsquo; Perspectives on Its Implementation in Education</h3>
+                    <p class="research-authors">Kaplan-Rakowski, R., <strong>Grotewold, K.</strong>, Hartwick, P., &amp; Papin, K.</p>
+                    <p class="research-venue">Journal of Interactive Learning Research</p>
+                    <p class="research-abstract">This research explored teachers&rsquo; perspectives on implementing generative AI (GAI) in education, shortly after OpenAI's public release of ChatGPT. It provided early results indicating that educators generally held positive views toward the technology regardless of their teaching style. The data suggested that increased frequency of GAI use correlated with more favorable attitudes, with many teachers viewing it as a valuable asset for both professional development and student support.</p>
+                    <a href="https://www.learntechlib.org/primary/p/222363/" class="research-doi" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                        learntechlib.org/primary/p/222363
+                    </a>
+                </article>
+
+                <article class="research-card" data-type="chapter">
+                    <div class="research-card-head">
+                        <span class="research-type">Book Chapter</span>
+                        <span class="research-year">2023</span>
+                    </div>
+                    <h3 class="research-title">Privacy Literacy and Library Instruction</h3>
+                    <p class="research-authors">Rivera, B. M. &amp; <strong>Grotewold, K. S.</strong></p>
+                    <p class="research-booktitle">In <em>Reimagining Education: Studies and Stories for Effective Learning Practices in an Evolving Digital Society</em></p>
+                    <p class="research-editors">Eds. D. Cockerham, R. Kaplan-Rakowski, W. Foshay, &amp; J. M. Spector</p>
+                    <p class="research-venue">Springer</p>
+                    <p class="research-abstract">This chapter reviewed privacy literacy literature and its implications for librarians and learners. It defined privacy literacy (PL) in K&ndash;12 and higher education contexts, described PL-oriented librarian responsibilities, examined existing PL curricula, and advocated for librarians to embed additional PL-related content into digital citizenship curricula and instruction.</p>
+                </article>
+
+                <article class="research-card" data-type="chapter">
+                    <div class="research-card-head">
+                        <span class="research-type">Book Chapter</span>
+                        <span class="research-year">2022</span>
+                    </div>
+                    <h3 class="research-title">Pay It Forward: Realizing the Promise of OER for the Next Generation of Learners</h3>
+                    <p class="research-authors"><strong>Grotewold, K. S.</strong>, Kohler, K. L., &amp; Krimbill, E.</p>
+                    <p class="research-booktitle">In <em>Using Open Educational Resources to Promote Social Justice</em></p>
+                    <p class="research-editors">Eds. C. J. Ivory &amp; A. Pashia</p>
+                    <p class="research-venue">Association of College &amp; Research Libraries Press</p>
+                    <p class="research-abstract">This chapter provided an overview of the potential transformative power of adopting open educational resources (OER) in educational settings. By analyzing several examples of institutions&rsquo; OER practices and policies through the lenses of cost savings, culturally responsive teaching, digital equity, and compounding impacts, the authors present a roadmap for promoting and extending OER use in K&ndash;12 and higher education.</p>
+                </article>
+
+                <article class="research-card" data-type="working">
+                    <div class="research-card-head">
+                        <span class="research-type">Working Paper</span>
+                        <span class="research-year">In progress</span>
+                    </div>
+                    <h3 class="research-title">ECET AI Framework: Evaluating AI Tools for Educational Contexts</h3>
+                    <p class="research-authors"><strong>Grotewold, K. S.</strong>, Warren, S. J., &amp; Beck, D.</p>
+                    <p class="research-venue">Expected completion in January 2027</p>
+                    <p class="research-abstract">The ECET Framework developed for a broad landscape of educational technology products and use cases is being revised for generative AI adoption decisions.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PRESENTATIONS ==================== -->
+    <section class="section section-alt" id="presentations" aria-labelledby="pres-title">
+        <div class="container">
+            <div class="section-head">
+                <div>
+                    <div class="section-num">05 · Speaking</div>
+                    <h2 class="section-title" id="pres-title">Conference presentations, workshops, &amp; invited talks.</h2>
+                </div>
+                <p class="section-lede">
+                    Recent presentations on AI in education, instructional design, and academic library innovation.
+                </p>
+            </div>
+
+            <div class="presentations-grid">
+                <article class="pres-card">
+                    <div class="pres-thumb pres-thumb-image">
+                        <img src="catie-conference.jpg" alt="Chancellor's Conference on Academic Technology 2026 marketing graphic, June 8-9 at RELLIS Campus, Bryan, TX and June 16 online">
+                    </div>
+                    <div class="pres-body">
+                        <div class="pres-meta"><span>June 2026</span><span class="pres-meta-dot" aria-hidden="true"></span><span class="type">Workshop</span></div>
+                        <h3 class="pres-title">From Student Assignments to Scholarly Publications: Connecting the Dots Toward Transparency in AI Use.</h3>
+                        <p class="pres-venue">Chancellor&rsquo;s Conference on Academic Technology, June 2026</p>
+                    </div>
+                </article>
+                <article class="pres-card">
+                    <div class="pres-thumb pres-thumb-image">
+                        <img src="amigos-slide-overlay.png" alt="Slide preview for Don't Use a Hammer When You Need a Utility Knife presentation, September 2025, Amigos Library Services">
+                    </div>
+                    <div class="pres-body">
+                        <div class="pres-meta"><span>September 2025</span><span class="pres-meta-dot" aria-hidden="true"></span><span class="type">Panel</span></div>
+                        <h3 class="pres-title">Don&rsquo;t Use a Hammer When You Need a Utility Knife: Selecting the Right AI Tool for the Job Matters</h3>
+                        <p class="pres-venue">Amigos Library Services: The Hive AI Tips and Tricks Online Webinar</p>
+                    </div>
+                </article>
+                <article class="pres-card">
+                    <div class="pres-thumb"><span class="pres-thumb-label">SLIDE PREVIEW</span></div>
+                    <div class="pres-body">
+                        <div class="pres-meta"><span>April 2024</span><span class="pres-meta-dot" aria-hidden="true"></span><span class="type">Paper</span></div>
+                        <h3 class="pres-title">Instructors&rsquo; Views of the Effectiveness, Efficiency, and Trustworthiness of an Artificial Intelligence Literature Review Tool</h3>
+                        <p class="pres-venue">AERA Annual Meeting, Philadelphia, PA</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CREATIVE WORKS ==================== -->
+    <section class="section" id="creative" aria-labelledby="creative-title">
+        <div class="container">
+            <div class="section-head">
+                <div>
+                    <div class="section-num">06 · Portfolio</div>
+                    <h2 class="section-title" id="creative-title">Creative works &amp; projects.</h2>
+                </div>
+                <p class="section-lede">
+                    Selected projects, resources, and creative outputs from teaching, library innovation, and program design.
+                </p>
+            </div>
+
+            <div class="creative-grid">
+                <article class="creative-card">
+                    <div class="creative-thumb">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                        <span class="creative-thumb-label">image.png</span>
+                    </div>
+                    <div class="creative-body">
+                        <div class="creative-type">Framework</div>
+                        <h3 class="creative-title">ECET AI Decision Tool</h3>
+                        <p class="creative-desc">Visual decision-support tool for evaluating educational AI products.</p>
+                    </div>
+                </article>
+                <article class="creative-card">
+                    <div class="creative-thumb">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+                        <span class="creative-thumb-label">document.pdf</span>
+                    </div>
+                    <div class="creative-body">
+                        <div class="creative-type">Curriculum</div>
+                        <h3 class="creative-title">[Project title &mdash; add]</h3>
+                        <p class="creative-desc">Short description of this work.</p>
+                    </div>
+                </article>
+                <article class="creative-card">
+                    <div class="creative-thumb">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+                        <span class="creative-thumb-label">video.mp4</span>
+                    </div>
+                    <div class="creative-body">
+                        <div class="creative-type">Media</div>
+                        <h3 class="creative-title">[Project title &mdash; add]</h3>
+                        <p class="creative-desc">Short description of this creative endeavor.</p>
+                    </div>
+                </article>
+                <article class="creative-card">
+                    <div class="creative-thumb">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        <span class="creative-thumb-label">site.url</span>
+                    </div>
+                    <div class="creative-body">
+                        <div class="creative-type">Website</div>
+                        <h3 class="creative-title">Library Innovation Lab</h3>
+                        <p class="creative-desc">Site and programming for TAMU-SA's Library Innovation Lab.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Kimberly S. Grotewold, Ph.D.</h3>
+                    <p>AI Librarian, learning technologies researcher, and higher education leader advancing ethical technology integration.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="/cdn-cgi/l/email-protection#9ff4f8edf0ebfae8f0f3fbdfebfef2eaecfeb1fafbea">Email</a></li>
+                        <li><a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li><a href="#cv">Download CV</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="#philosophy">Philosophy</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#research">Research</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Kimberly S. Grotewold</span>
+                <span>Built with care. WCAG 2.1 AA.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== TWEAKS PANEL ==================== -->
+    <div class="tweaks-panel" id="tweaksPanel" role="dialog" aria-label="Design tweaks">
+        <h4>
+            <span>Tweaks</span>
+            <button class="close" id="tweaksClose" aria-label="Close tweaks">×</button>
+        </h4>
+        <div class="tweak-group">
+            <label class="tweak-label">Design variant</label>
+            <div class="variant-buttons" id="variantButtons">
+                <button class="variant-btn" data-variant="safe">Safe</button>
+                <button class="variant-btn active" data-variant="medium">Medium</button>
+                <button class="variant-btn" data-variant="bold">Bold</button>
+            </div>
+            <p class="variant-desc" id="variantDesc">Warm editorial — sienna accent, serif-adjacent sans. Balanced and modern.</p>
+        </div>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js" defer></script><script>
+    (function () {
+        'use strict';
+
+        // ---- Apply tweak defaults ----
+        const defaults = window.TWEAK_DEFAULTS || { variant: 'medium' };
+        function applyVariant(v) {
+            document.body.classList.remove('variant-safe', 'variant-medium', 'variant-bold');
+            document.body.classList.add('variant-' + v);
+            document.querySelectorAll('.variant-btn').forEach(b => {
+                b.classList.toggle('active', b.dataset.variant === v);
+            });
+            const descs = {
+                safe: 'Editorial minimal — cool neutral, deep indigo accent. Classic and confident.',
+                medium: 'Warm editorial — off-white paper, sienna accent. Balanced and modern.',
+                bold: 'Bold statement — cream background, decisive orange, high contrast.'
+            };
+            const descEl = document.getElementById('variantDesc');
+            if (descEl) descEl.textContent = descs[v];
+        }
+        applyVariant(defaults.variant || 'medium');
+
+        // ---- Mobile nav ----
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        menuToggle.addEventListener('click', () => {
+            const open = navLinks.classList.toggle('open');
+            menuToggle.setAttribute('aria-expanded', open);
+        });
+        navLinks.querySelectorAll('a').forEach(a =>
+            a.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            })
+        );
+
+        // ---- Nav scroll state + active section ----
+        const nav = document.querySelector('.nav');
+        const sections = document.querySelectorAll('main section[id]');
+        const navItems = document.querySelectorAll('.nav-links a');
+        function onScroll() {
+            nav.classList.toggle('scrolled', window.scrollY > 20);
+            let current = 'about';
+            sections.forEach(s => {
+                if (window.scrollY >= s.offsetTop - 140) current = s.id;
+            });
+            navItems.forEach(a => {
+                a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+            });
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        // ---- Expandable experience cards ----
+        document.querySelectorAll('.exp-header').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.closest('.exp-item');
+                const isOpen = item.classList.toggle('open');
+                btn.setAttribute('aria-expanded', isOpen);
+            });
+        });
+
+        // ---- Research filter ----
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const f = btn.dataset.filter;
+                document.querySelectorAll('.filter-btn').forEach(b => {
+                    b.classList.toggle('active', b === btn);
+                    b.setAttribute('aria-selected', b === btn);
+                });
+                document.querySelectorAll('.research-card').forEach(c => {
+                    c.style.display = (f === 'all' || c.dataset.type === f) ? '' : 'none';
+                });
+            });
+        });
+
+        // ---- Reveal on scroll ----
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!prefersReduced && 'IntersectionObserver' in window) {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+                });
+            }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+            document.querySelectorAll('.section-head, .research-card, .pres-card, .creative-card, .pillar, .exp-item')
+                .forEach(el => { el.classList.add('reveal'); io.observe(el); });
+        }
+
+        // ---- Tweaks panel (host edit-mode protocol) ----
+        const panel = document.getElementById('tweaksPanel');
+        window.addEventListener('message', (e) => {
+            if (!e.data || typeof e.data !== 'object') return;
+            if (e.data.type === '__activate_edit_mode') panel.classList.add('active');
+            if (e.data.type === '__deactivate_edit_mode') panel.classList.remove('active');
+        });
+        try { window.parent.postMessage({ type: '__edit_mode_available' }, '*'); } catch (_) {}
+
+        document.getElementById('tweaksClose').addEventListener('click', () => {
+            panel.classList.remove('active');
+            try { window.parent.postMessage({ type: '__deactivate_edit_mode' }, '*'); } catch (_) {}
+        });
+
+        document.querySelectorAll('.variant-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const v = btn.dataset.variant;
+                applyVariant(v);
+                try {
+                    window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { variant: v } }, '*');
+                } catch (_) {}
+            });
+        });
+    })();
+    </script>
+</body>
+</html>
