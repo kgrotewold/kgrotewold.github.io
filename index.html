@@ -745,53 +745,78 @@
         /* ================================================================
            CREATIVE WORKS
            ================================================================ */
-      .creative-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-}
-@media (max-width: 900px) {
-    .creative-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-@media (max-width: 500px) {
-    .creative-grid {
-        grid-template-columns: 1fr;
-    }
-        .creative-card {
-            background: var(--surface);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            border: 1px solid var(--rule);
-            transition: transform 200ms ease, box-shadow 200ms ease;
-        }
-        .creative-card:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-        .creative-thumb {
-            aspect-ratio: 1 / 1;
-            background:
-                repeating-linear-gradient(45deg, transparent 0 10px, color-mix(in oklab, var(--ink) 5%, transparent) 10px 11px),
-                linear-gradient(160deg, var(--paper-2), var(--paper-3));
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            gap: 0.5rem;
-            color: var(--ink-3);
-            border-bottom: 1px solid var(--rule);
-        }
-        .creative-thumb svg { width: 36px; height: 36px; opacity: 0.5; }
-        .creative-thumb-label { font-family: var(--font-mono); font-size: 0.72rem; }
-        .creative-body { padding: 1.25rem 1.35rem 1.5rem; }
-        .creative-type {
-            font-family: var(--font-mono); font-size: 0.72rem;
-            color: var(--accent);
-            text-transform: uppercase; letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
-        }
-        .creative-title { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.35rem; }
-        .creative-desc { font-size: 0.88rem; color: var(--ink-2); line-height: 1.5; }
+    <!-- ===== CREATIVE WORKS SECTION ===== -->
+<section id="creative-works" style="padding: var(--section-pad-y) var(--gutter); background-color: var(--paper-2);">
+  <div style="max-width: var(--container); margin: 0 auto;">
 
+    <h2 style="font-family: var(--font-sans); font-size: 1.8rem; color: var(--accent); margin-bottom: 0.5rem;">Creative Works</h2>
+    <p style="color: var(--ink-3); margin-bottom: 2.5rem;">Selected projects, tools, and digital resources.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;">
+
+      <!-- CARD 1 — AI Tools for Research -->
+      <div style="background: var(--surface); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px var(--rule);">
+        <img src="creative-works/AIToolsforResearch.png" alt="AI Tools for Research screenshot"
+             style="width: 100%; height: 160px; object-fit: cover;">
+        <div style="padding: 1rem;">
+          <p style="font-family: var(--font-sans); font-size: 0.75rem; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.3rem;">Resource Website</p>
+          <h3 style="font-family: var(--font-sans); font-size: 1rem; margin: 0 0 0.5rem;">
+            <a href="https://libguides.tamusa.edu/AI_for_lit_research" target="_blank" style="color: var(--accent); text-decoration: none;">AI Tools for Research</a>
+          </h3>
+          <p style="font-family: var(--font-sans); font-size: 0.875rem; color: var(--ink-2); margin: 0; line-height: 1.6;">
+            Informational website describing AI features in library databases, strengths and limitations of various AI tools for research, journal policies on AI use and disclosure, and ethical concerns associated with AI use.
+          </p>
+        </div>
+      </div>
+
+      <!-- CARD 2 — AI for Teachers -->
+      <div style="background: var(--surface); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px var(--rule);">
+        <img src="creative-works/AIforTeachers.png" alt="AI for Teachers screenshot"
+             style="width: 100%; height: 160px; object-fit: cover;">
+        <div style="padding: 1rem;">
+          <p style="font-family: var(--font-sans); font-size: 0.75rem; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.3rem;">Resource Website</p>
+          <h3 style="font-family: var(--font-sans); font-size: 1rem; margin: 0 0 0.5rem;">
+            <a href="https://libguides.tamusa.edu/AI-Teachers" target="_blank" style="color: var(--accent); text-decoration: none;">AI for Teachers</a>
+          </h3>
+          <p style="font-family: var(--font-sans); font-size: 0.875rem; color: var(--ink-2); margin: 0; line-height: 1.6;">
+            Informational website with examples of K-12 literacy frameworks, professional development opportunities, sample activities useful for K-16 educators, and news about AI in education.
+          </p>
+        </div>
+      </div>
+
+      <!-- CARD 3 — Digital Literacy Modules -->
+      <div style="background: var(--surface); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px var(--rule);">
+        <img src="creative-works/DigitalLiteracyModules.png" alt="Digital Literacy Modules screenshot"
+             style="width: 100%; height: 160px; object-fit: cover;">
+        <div style="padding: 1rem;">
+          <p style="font-family: var(--font-sans); font-size: 0.75rem; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.3rem;">Instructional Modules</p>
+          <h3 style="font-family: var(--font-sans); font-size: 1rem; margin: 0 0 0.5rem;">
+            <a href="https://libguides.tamusa.edu/digital_literacy" target="_blank" style="color: var(--accent); text-decoration: none;">Digital Literacy Modules</a>
+          </h3>
+          <p style="font-family: var(--font-sans); font-size: 0.875rem; color: var(--ink-2); margin: 0; line-height: 1.6;">
+            Instructional content aligned with ISTE educator technology standards and Texas Technology Applications Learning Outcomes.
+          </p>
+        </div>
+      </div>
+
+      <!-- CARD 4 — Library Innovation Lab -->
+      <div style="background: var(--surface); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px var(--rule);">
+        <img src="creative-works/LibraryInnovationLab.png" alt="Library Innovation Lab screenshot"
+             style="width: 100%; height: 160px; object-fit: cover;">
+        <div style="padding: 1rem;">
+          <p style="font-family: var(--font-sans); font-size: 0.75rem; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.3rem;">Website</p>
+          <h3 style="font-family: var(--font-sans); font-size: 1rem; margin: 0 0 0.5rem;">
+            <a href="https://libguides.tamusa.edu/LibraryInnovationLab" target="_blank" style="color: var(--accent); text-decoration: none;">Library Innovation Lab</a>
+          </h3>
+          <p style="font-family: var(--font-sans); font-size: 0.875rem; color: var(--ink-2); margin: 0; line-height: 1.6;">
+            Informational website with detailed policies, resources, and a production request project submission form.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
         /* ================================================================
            FOOTER
            ================================================================ */
