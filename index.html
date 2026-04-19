@@ -745,78 +745,60 @@
         /* ================================================================
            CREATIVE WORKS
            ================================================================ */
-    <!-- ===== CREATIVE WORKS SECTION ===== -->
-<section id="creative-works" style="padding: var(--section-pad-y) var(--gutter); background-color: var(--paper-2);">
-  <div style="max-width: var(--container); margin: 0 auto;">
-
-    <h2 style="font-family: var(--font-sans); font-size: 1.8rem; color: var(--accent); margin-bottom: 0.5rem;">Creative Works</h2>
-    <p style="color: var(--ink-3); margin-bottom: 2.5rem;">Selected projects, tools, and digital resources.</p>
-
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;">
-
-      <!-- CARD 1 — AI Tools for Research -->
-      <div style="background: var(--surface); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px var(--rule);">
-        <img src="creative-works/AIToolsforResearch.png" alt="AI Tools for Research screenshot"
-             style="width: 100%; height: 160px; object-fit: cover;">
-        <div style="padding: 1rem;">
-          <p style="font-family: var(--font-sans); font-size: 0.75rem; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.3rem;">Resource Website</p>
-          <h3 style="font-family: var(--font-sans); font-size: 1rem; margin: 0 0 0.5rem;">
-            <a href="https://libguides.tamusa.edu/AI_for_lit_research" target="_blank" style="color: var(--accent); text-decoration: none;">AI Tools for Research</a>
-          </h3>
-          <p style="font-family: var(--font-sans); font-size: 0.875rem; color: var(--ink-2); margin: 0; line-height: 1.6;">
-            Informational website describing AI features in library databases, strengths and limitations of various AI tools for research, journal policies on AI use and disclosure, and ethical concerns associated with AI use.
-          </p>
-        </div>
-      </div>
-
-      <!-- CARD 2 — AI for Teachers -->
-      <div style="background: var(--surface); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px var(--rule);">
-        <img src="creative-works/AIforTeachers.png" alt="AI for Teachers screenshot"
-             style="width: 100%; height: 160px; object-fit: cover;">
-        <div style="padding: 1rem;">
-          <p style="font-family: var(--font-sans); font-size: 0.75rem; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.3rem;">Resource Website</p>
-          <h3 style="font-family: var(--font-sans); font-size: 1rem; margin: 0 0 0.5rem;">
-            <a href="https://libguides.tamusa.edu/AI-Teachers" target="_blank" style="color: var(--accent); text-decoration: none;">AI for Teachers</a>
-          </h3>
-          <p style="font-family: var(--font-sans); font-size: 0.875rem; color: var(--ink-2); margin: 0; line-height: 1.6;">
-            Informational website with examples of K-12 literacy frameworks, professional development opportunities, sample activities useful for K-16 educators, and news about AI in education.
-          </p>
-        </div>
-      </div>
-
-      <!-- CARD 3 — Digital Literacy Modules -->
-      <div style="background: var(--surface); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px var(--rule);">
-        <img src="creative-works/DigitalLiteracyModules.png" alt="Digital Literacy Modules screenshot"
-             style="width: 100%; height: 160px; object-fit: cover;">
-        <div style="padding: 1rem;">
-          <p style="font-family: var(--font-sans); font-size: 0.75rem; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.3rem;">Instructional Modules</p>
-          <h3 style="font-family: var(--font-sans); font-size: 1rem; margin: 0 0 0.5rem;">
-            <a href="https://libguides.tamusa.edu/digital_literacy" target="_blank" style="color: var(--accent); text-decoration: none;">Digital Literacy Modules</a>
-          </h3>
-          <p style="font-family: var(--font-sans); font-size: 0.875rem; color: var(--ink-2); margin: 0; line-height: 1.6;">
-            Instructional content aligned with ISTE educator technology standards and Texas Technology Applications Learning Outcomes.
-          </p>
-        </div>
-      </div>
-
-      <!-- CARD 4 — Library Innovation Lab -->
-      <div style="background: var(--surface); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px var(--rule);">
-        <img src="creative-works/LibraryInnovationLab.png" alt="Library Innovation Lab screenshot"
-             style="width: 100%; height: 160px; object-fit: cover;">
-        <div style="padding: 1rem;">
-          <p style="font-family: var(--font-sans); font-size: 0.75rem; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.3rem;">Website</p>
-          <h3 style="font-family: var(--font-sans); font-size: 1rem; margin: 0 0 0.5rem;">
-            <a href="https://libguides.tamusa.edu/LibraryInnovationLab" target="_blank" style="color: var(--accent); text-decoration: none;">Library Innovation Lab</a>
-          </h3>
-          <p style="font-family: var(--font-sans); font-size: 0.875rem; color: var(--ink-2); margin: 0; line-height: 1.6;">
-            Informational website with detailed policies, resources, and a production request project submission form.
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
+  
+.creative-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+.creative-card {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--rule);
+    transition: transform 200ms ease, box-shadow 200ms ease;
+    display: flex; flex-direction: column;
+}
+.creative-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+.creative-thumb {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border-bottom: 1px solid var(--rule);
+    overflow: hidden;
+}
+.creative-thumb img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.creative-body {
+    padding: 1.5rem;
+    display: flex; flex-direction: column; gap: 0.6rem;
+    flex: 1;
+}
+.creative-meta {
+    display: flex; align-items: center; gap: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    text-transform: uppercase; letter-spacing: 0.05em;
+}
+.creative-meta .type { color: var(--ink-3); }
+.creative-meta-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--ink-3); }
+.creative-title {
+    font-size: 1.08rem;
+    font-weight: 600;
+    line-height: 1.35;
+}
+.creative-title a {
+    color: var(--ink);
+    text-decoration: none;
+}
+.creative-title a:hover { color: var(--accent); }
+.creative-desc { font-size: 0.9rem; color: var(--ink-2); line-height: 1.6; }
         /* ================================================================
            FOOTER
            ================================================================ */
@@ -1492,61 +1474,90 @@
     </section>
 
     <!-- ==================== CREATIVE WORKS ==================== -->
- <section class="section section-alt" id="Creative Works" aria-labelledby="creative-title">
-        <div class="container">
-            <div class="section-head">
-                <div>
-                    <div class="section-num">05 · Projects </div>
-                    <h2 class="section-title" id="creative-title">Instructional Modules, Resource Websites, and More.</h2>
-                </div>
-                <p class="section-lede">
-                    Recent and ongoing projects supporting university students, faculty, and staff.
-                </p>
-            </div>
+<!-- ===== CREATIVE WORKS SECTION ===== -->
+<section id="creative-works" style="padding: var(--section-pad-y) var(--gutter); background-color: var(--paper-2);">
+  <div style="max-width: var(--container); margin: 0 auto;">
 
-            <div class="Creative Works-grid">
-                <article class="creative-card">
-                    <div class="creative-thumb creative-thumb-image"><div class="creative-grid">
+    <h2 style="font-family: var(--font-sans); font-size: 1.8rem; color: var(--accent); margin-bottom: 0.5rem;">Creative Works</h2>
+    <p style="color: var(--ink-3); margin-bottom: 2.5rem;">Selected projects, tools, and digital resources.</p>
 
-            <img src="assets/img/proj-digital-literacy.png" alt="Digital Literacy Modules screenshot">
-        </div>
-        <div class="creative-body">
-            <div class="creative-type">Instructional Modules</div>
-            <h3 class="creative-title"><a href="#" target="_blank" rel="noopener">Digital Literacy Modules</a></h3>
-            <p class="creative-desc">Instructional content aligned with ISTE educator technology standards and Texas Technology Applications Learning Outcomes. Designed for use by undergraduate students pursuing teacher certification.</p>
-        </div>
-    </article>
-    <article class="creative-card">
+    <div class="creative-grid">
+
+      <!-- CARD 1 — AI Tools for Research -->
+      <div class="creative-card">
         <div class="creative-thumb">
-            <img src="assets/img/proj-innovation-lab.png" alt="Library Innovation Lab website screenshot">
+          <img src="creative-works/AIToolsforResearch.png" alt="AI Tools for Research screenshot">
         </div>
         <div class="creative-body">
-            <div class="creative-type">Website</div>
-            <h3 class="creative-title"><a href="#" target="_blank" rel="noopener">Library Innovation Lab</a></h3>
-            <p class="creative-desc">Informational website providing detailed information, policies, and resources related to the services offered by the Library Innovation Lab. The site also includes a link to the production request project submission form.</p>
+          <div class="creative-meta">
+            <span>2024</span>
+            <span class="creative-meta-dot"></span>
+            <span class="type">Resource Website</span>
+          </div>
+          <div class="creative-title">
+            <a href="https://libguides.tamusa.edu/AI_for_lit_research" target="_blank">AI Tools for Research</a>
+          </div>
+          <p class="creative-desc">Informational website describing AI features in library databases, strengths and limitations of various AI tools for research, journal policies on AI use and disclosure, and ethical concerns associated with AI use.</p>
         </div>
-    </article>
-    <article class="creative-card">
+      </div>
+
+      <!-- CARD 2 — AI for Teachers -->
+      <div class="creative-card">
         <div class="creative-thumb">
-            <img src="assets/img/proj-placeholder-3.png" alt="Project screenshot">
+          <img src="creative-works/AIforTeachers.png" alt="AI for Teachers screenshot">
         </div>
         <div class="creative-body">
-            <div class="creative-type"><!-- type --></div>
-            <h3 class="creative-title"><a href="#">[Project title]</a></h3>
-            <p class="creative-desc">Short description of this creative endeavor.</p>
+          <div class="creative-meta">
+            <span>2024</span>
+            <span class="creative-meta-dot"></span>
+            <span class="type">Resource Website</span>
+          </div>
+          <div class="creative-title">
+            <a href="https://libguides.tamusa.edu/AI-Teachers" target="_blank">AI for Teachers</a>
+          </div>
+          <p class="creative-desc">Informational website with examples of K-12 literacy frameworks, professional development opportunities, sample activities useful for K-16 educators, and news about AI in education.</p>
         </div>
-    </article>
-    <article class="creative-card">
+      </div>
+
+      <!-- CARD 3 — Digital Literacy Modules -->
+      <div class="creative-card">
         <div class="creative-thumb">
-            <img src="assets/img/proj-placeholder-4.png" alt="Project screenshot">
+          <img src="creative-works/DigitalLiteracyModules.png" alt="Digital Literacy Modules screenshot">
         </div>
         <div class="creative-body">
-            <div class="creative-type"><!-- type --></div>
-            <h3 class="creative-title"><a href="#">[Project title]</a></h3>
-            <p class="creative-desc">Short description of this creative endeavor.</p>
+          <div class="creative-meta">
+            <span>2023</span>
+            <span class="creative-meta-dot"></span>
+            <span class="type">Instructional Modules</span>
+          </div>
+          <div class="creative-title">
+            <a href="https://libguides.tamusa.edu/digital_literacy" target="_blank">Digital Literacy Modules</a>
+          </div>
+          <p class="creative-desc">Instructional content aligned with ISTE educator technology standards and Texas Technology Applications Learning Outcomes.</p>
         </div>
-    </article>
-</div>
+      </div>
+
+      <!-- CARD 4 — Library Innovation Lab -->
+      <div class="creative-card">
+        <div class="creative-thumb">
+          <img src="creative-works/LibraryInnovationLab.png" alt="Library Innovation Lab screenshot">
+        </div>
+        <div class="creative-body">
+          <div class="creative-meta">
+            <span>2023</span>
+            <span class="creative-meta-dot"></span>
+            <span class="type">Website</span>
+          </div>
+          <div class="creative-title">
+            <a href="https://libguides.tamusa.edu/LibraryInnovationLab" target="_blank">Library Innovation Lab</a>
+          </div>
+          <p class="creative-desc">Informational website with detailed policies, resources, and a production request project submission form.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
                 
     </main>
 
