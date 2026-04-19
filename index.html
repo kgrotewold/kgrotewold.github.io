@@ -1441,9 +1441,11 @@
     <div class="pres-body">
         <div class="pres-meta"><span>April 2024</span><span class="pres-meta-dot" aria-hidden="true"></span><span class="type">Paper</span></div>
         <h3 class="pres-title">Instructors&rsquo; Views of the Effectiveness, Efficiency, and Trustworthiness of an Artificial Intelligence Literature Review Tool</h3>
-        <p class="pres-venue">AERA Annual Meeting, Philadelphia, PA</p>
+       <p class="pres-venue">AERA Annual Meeting, Philadelphia, PA</p>
     </div>
              </article>
+             </div>
+    </div>
     </section>
 
 <!-- ==================== CREATIVE WORKS ==================== -->
@@ -1658,29 +1660,9 @@
                 .forEach(el => { el.classList.add('reveal'); io.observe(el); });
         }
 
-        // ---- Tweaks panel (host edit-mode protocol) ----
-        const panel = document.getElementById('tweaksPanel');
-        window.addEventListener('message', (e) => {
-            if (!e.data || typeof e.data !== 'object') return;
-            if (e.data.type === '__activate_edit_mode') panel.classList.add('active');
-            if (e.data.type === '__deactivate_edit_mode') panel.classList.remove('active');
-        });
-        try { window.parent.postMessage({ type: '__edit_mode_available' }, '*'); } catch (_) {}
-
-        document.getElementById('tweaksClose').addEventListener('click', () => {
-            panel.classList.remove('active');
-            try { window.parent.postMessage({ type: '__deactivate_edit_mode' }, '*'); } catch (_) {}
-        });
-
-        document.querySelectorAll('.variant-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const v = btn.dataset.variant;
-                applyVariant(v);
-                try {
-                    window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { variant: v } }, '*');
-                } catch (_) {}
-            });
-        });
+        // ---- Tweaks panel removed ----
+      
+        
     })();
     </script>
 </body>
