@@ -798,54 +798,36 @@
         /* ================================================================
            FOOTER
            ================================================================ */
-        .footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 2rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid var(--rule);
-}
-.footer-brand h3 {
-    font-family: var(--font-sans);
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--ink);
-    margin: 0 0 0.5rem;
-}
-.footer-brand p {
-    font-size: 0.875rem;
-    color: var(--ink-3);
-    line-height: 1.6;
-    margin: 0;
-}
-.footer-col h4 {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--accent);
-    margin: 0 0 0.75rem;
-}
-.footer-col ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-.footer-col ul li a {
-    font-size: 0.875rem;
-    color: var(--ink-2);
-    text-decoration: none;
-}
-.footer-col ul li a:hover { color: var(--accent); }
-.footer-bottom {
-    padding-top: 1.5rem;
-    font-size: 0.8rem;
-    color: var(--ink-3);
-}f
-        }
+       <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Kimberly S. Grotewold, Ph.D.</h3>
+                    <p>AI Librarian, learning technologies researcher, and higher education leader advancing ethical technology integration.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="kgrotewold@tamusa.edu">Email</a></li>
+                        <li><a href="https://www.linkedin.com/in/kimberlysgrotewold/" target="_blank" rel="noopener">LinkedIn</a></li>
+                
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="#philosophy">Philosophy</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#research">Research</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Kimberly S. Grotewold</span>
+
+            </div>
+        </div>
+    </footer>
 
         @media (max-width: 720px) {
             .footer-grid { grid-template-columns: 1fr; gap: 2rem; padding-bottom: 2rem; }
