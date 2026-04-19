@@ -747,8 +747,14 @@
            ================================================================ */
         .creative-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
+        }
+        @media (max-width: 900px) {
+            .creative-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 520px) {
+            .creative-grid { grid-template-columns: 1fr; }
         }
         .creative-card {
             background: var(--surface);
@@ -762,7 +768,7 @@
             box-shadow: var(--shadow-md);
         }
         .creative-thumb {
-            aspect-ratio: 1 / 1;
+            aspect-ratio: 16 / 9;
             background:
                 repeating-linear-gradient(45deg, transparent 0 10px, color-mix(in oklab, var(--ink) 5%, transparent) 10px 11px),
                 linear-gradient(160deg, var(--paper-2), var(--paper-3));
@@ -770,7 +776,9 @@
             gap: 0.5rem;
             color: var(--ink-3);
             border-bottom: 1px solid var(--rule);
+            overflow: hidden;
         }
+        .creative-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .creative-thumb svg { width: 36px; height: 36px; opacity: 0.5; }
         .creative-thumb-label { font-family: var(--font-mono); font-size: 0.72rem; }
         .creative-body { padding: 1.25rem 1.35rem 1.5rem; }
@@ -781,6 +789,8 @@
             margin-bottom: 0.5rem;
         }
         .creative-title { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.35rem; }
+        .creative-title a { color: inherit; text-decoration: none; }
+        .creative-title a:hover { text-decoration: underline; }
         .creative-desc { font-size: 0.88rem; color: var(--ink-2); line-height: 1.5; }
 
         /* ================================================================
@@ -1473,46 +1483,42 @@
             <div class="creative-grid">
                 <article class="creative-card">
                     <div class="creative-thumb">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                        <span class="creative-thumb-label">image.png</span>
+                        <img src="assets/img/proj-digital-literacy.png" alt="Digital Literacy Modules screenshot">
                     </div>
                     <div class="creative-body">
                         <div class="creative-type">Instructional Modules</div>
-                        <h3 class="creative-title">Digital Literacy Modules</h3>
-                        <p class="Instructional content aligned with ISTE educator technology standards and Texas Technology Applications Learning Outcomes. Designed for use by undergraduate students pursuing teacher certification.</p>
+                        <h3 class="creative-title"><a href="#" target="_blank" rel="noopener">Digital Literacy Modules</a></h3>
+                        <p class="creative-desc">Instructional content aligned with ISTE educator technology standards and Texas Technology Applications Learning Outcomes. Designed for use by undergraduate students pursuing teacher certification.</p>
                     </div>
                 </article>
                 <article class="creative-card">
                     <div class="creative-thumb">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
-                        <span class="creative-thumb-label">image.png</span>
+                        <img src="assets/img/proj-innovation-lab.png" alt="Library Innovation Lab website screenshot">
                     </div>
                     <div class="creative-body">
                         <div class="creative-type">Website</div>
-                        <h3 class="creative-title">Library Innovation Lab</h3>
+                        <h3 class="creative-title"><a href="#" target="_blank" rel="noopener">Library Innovation Lab</a></h3>
                         <p class="creative-desc">Informational website providing detailed information, policies, and resources related to the services offered by the Library Innovation Lab. The site also includes a link to the production request project submission form.</p>
                     </div>
                 </article>
                 <article class="creative-card">
                     <div class="creative-thumb">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
-                        <span class="creative-thumb-label">image.png</span>
+                        <img src="assets/img/proj-placeholder-3.png" alt="Project screenshot">
                     </div>
                     <div class="creative-body">
-                        <div class="creative-thumb"></div>
-                        <h3 class="creative-title">[Project title &mdash; add]</h3>
+                        <div class="creative-type"><!-- type --></div>
+                        <h3 class="creative-title"><a href="#">[Project title]</a></h3>
                         <p class="creative-desc">Short description of this creative endeavor.</p>
                     </div>
                 </article>
                 <article class="creative-card">
                     <div class="creative-thumb">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                        <span class="creative-thumb-label">site.url</span>
+                        <img src="assets/img/proj-placeholder-4.png" alt="Project screenshot">
                     </div>
                     <div class="creative-body">
-                        <div class="creative-type">Website</div>
-                        <h3 class="creative-title">Library Innovation Lab</h3>
-                        <p class="creative-desc">Site and programming for TAMU-SA's Library Innovation Lab.</p>
+                        <div class="creative-type"><!-- type --></div>
+                        <h3 class="creative-title"><a href="#">[Project title]</a></h3>
+                        <p class="creative-desc">Short description of this creative endeavor.</p>
                     </div>
                 </article>
             </div>
