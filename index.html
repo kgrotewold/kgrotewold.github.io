@@ -470,6 +470,16 @@
         .experience-list {
             display: flex; flex-direction: column; gap: 0;
         }
+        .exp-description {
+    padding: 0 1.5rem 2rem calc(140px + 1.5rem);
+    color: var(--ink-2);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+.exp-tags {
+    display: flex; flex-wrap: wrap; gap: 0.4rem;
+    padding: 0 1.5rem 2rem calc(140px + 1.5rem);
+}
         .exp-item {
             border-top: 1px solid var(--rule);
             transition: background 200ms ease;
@@ -528,22 +538,7 @@
             overflow: hidden;
             min-height: 0;
         }
-        .exp-description {
-            padding: 0 calc(140px + 1.5rem) 2rem 140px;
-            margin-left: 1.5rem;
-            padding-left: 0;
-            max-width: 70ch;
-            color: var(--ink-2);
-            font-size: 1rem;
-            line-height: 1.7;
-        }
-        .exp-tags {
-            display: flex; flex-wrap: wrap; gap: 0.4rem;
-            padding-left: calc(140px + 1.5rem);
-            padding-bottom: 2rem;
-            margin-left: 1.5rem;
-            padding-left: 0;
-        }
+     
         .exp-tag {
             font-family: var(--font-mono);
             font-size: 0.72rem;
@@ -565,9 +560,8 @@
                 order: -1;
                 font-size: 0.75rem;
             }
-            .exp-description, .exp-tags { padding-left: 0; margin-left: 0; }
-            .exp-description { padding-bottom: 1.25rem; }
-            .exp-tags { padding-bottom: 1.5rem; }
+            .exp-description { padding: 0 1rem 1.25rem 0; }
+.exp-tags { padding: 0 1rem 1.5rem 0; }
         }
 
         /* ================================================================
